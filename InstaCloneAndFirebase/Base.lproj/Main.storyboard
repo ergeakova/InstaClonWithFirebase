@@ -11,7 +11,7 @@
         <!--Upload-->
         <scene sceneID="bWE-UP-hry">
             <objects>
-                <viewController id="Jc4-Ez-UMo" sceneMemberID="viewController">
+                <viewController id="Jc4-Ez-UMo" customClass="UploadViewController" customModule="InstaCloneAndFirebase" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="enZ-RJ-NNt">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -22,12 +22,45 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PWd-xk-zKc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-110" y="395"/>
+            <point key="canvasLocation" x="-110" y="435"/>
+        </scene>
+        <!--Settings-->
+        <scene sceneID="OLP-rM-Vz7">
+            <objects>
+                <viewController id="Jf0-Lb-nuj" customClass="SettingsViewController" customModule="InstaCloneAndFirebase" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="M0n-6a-hve">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FS1-vb-4cD">
+                                <rect key="frame" x="111" y="687" width="193" height="49"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Logout">
+                                    <fontDescription key="titleFontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="23"/>
+                                    <color key="baseBackgroundColor" systemColor="systemPinkColor"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="logoutClicked:" destination="Jf0-Lb-nuj" eventType="touchUpInside" id="Fw8-QX-tlD"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="l7U-3O-GvW"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Settings" image="gearshape.fill" catalog="system" id="ujM-R2-WLh"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="presentation" identifier="toViewController" modalPresentationStyle="fullScreen" id="AZw-c1-Cvu"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Tgb-N1-pOF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="786" y="90"/>
         </scene>
         <!--Feed-->
         <scene sceneID="DsB-pG-WSm">
             <objects>
-                <viewController id="C0Y-gk-kDb" sceneMemberID="viewController">
+                <viewController id="C0Y-gk-kDb" customClass="FeedViewController" customModule="InstaCloneAndFirebase" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="N51-fw-oaP">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -38,7 +71,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xxq-nT-qXW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-110" y="-212"/>
+            <point key="canvasLocation" x="-110" y="-228"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="72p-hX-Oes">
@@ -53,6 +86,7 @@
                     <connections>
                         <segue destination="C0Y-gk-kDb" kind="relationship" relationship="viewControllers" id="3tE-TP-LKV"/>
                         <segue destination="Jc4-Ez-UMo" kind="relationship" relationship="viewControllers" id="Dev-rR-Tld"/>
+                        <segue destination="Jf0-Lb-nuj" kind="relationship" relationship="viewControllers" id="fjL-B7-fJG"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PKj-F2-MmL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -133,6 +167,7 @@
                             <constraint firstItem="uVt-a9-kTN" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="54" id="ylG-3X-JPH"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="UMJ-eC-o8n"/>
                     <connections>
                         <outlet property="txtEmail" destination="J0q-fu-76d" id="KKt-mr-cOc"/>
                         <outlet property="txtPassword" destination="oKD-1w-uV8" id="yke-tT-t6Q"/>
@@ -141,14 +176,18 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2036.2318840579712" y="89.732142857142847"/>
+            <point key="canvasLocation" x="-1946" y="90"/>
         </scene>
     </scenes>
     <resources>
         <image name="f.cursive.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="gearshape.fill" catalog="system" width="128" height="121"/>
         <image name="plus" catalog="system" width="128" height="113"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemPinkColor">
+            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

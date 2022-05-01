@@ -11,6 +11,9 @@
 		C0439A8C281E130A00D457C2 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = C0439A8B281E130A00D457C2 /* FirebaseAuth */; };
 		C0439A8E281E130A00D457C2 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = C0439A8D281E130A00D457C2 /* FirebaseFirestore */; };
 		C0439A90281E130A00D457C2 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = C0439A8F281E130A00D457C2 /* FirebaseStorage */; };
+		C0439A92281E227A00D457C2 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0439A91281E227A00D457C2 /* FeedViewController.swift */; };
+		C0439A94281E22A800D457C2 /* UploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0439A93281E22A800D457C2 /* UploadViewController.swift */; };
+		C0439A96281E22BE00D457C2 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0439A95281E22BE00D457C2 /* SettingsViewController.swift */; };
 		C0ECE6A5281E01AE00E5548D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0ECE6A4281E01AE00E5548D /* AppDelegate.swift */; };
 		C0ECE6A7281E01AE00E5548D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0ECE6A6281E01AE00E5548D /* SceneDelegate.swift */; };
 		C0ECE6A9281E01AE00E5548D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0ECE6A8281E01AE00E5548D /* ViewController.swift */; };
@@ -21,6 +24,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C0439A91281E227A00D457C2 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
+		C0439A93281E22A800D457C2 /* UploadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadViewController.swift; sourceTree = "<group>"; };
+		C0439A95281E22BE00D457C2 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		C0ECE6A1281E01AE00E5548D /* InstaCloneAndFirebase.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InstaCloneAndFirebase.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0ECE6A4281E01AE00E5548D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C0ECE6A6281E01AE00E5548D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -69,6 +75,9 @@
 				C0ECE6A4281E01AE00E5548D /* AppDelegate.swift */,
 				C0ECE6A6281E01AE00E5548D /* SceneDelegate.swift */,
 				C0ECE6A8281E01AE00E5548D /* ViewController.swift */,
+				C0439A91281E227A00D457C2 /* FeedViewController.swift */,
+				C0439A93281E22A800D457C2 /* UploadViewController.swift */,
+				C0439A95281E22BE00D457C2 /* SettingsViewController.swift */,
 				C0ECE6AA281E01AE00E5548D /* Main.storyboard */,
 				C0ECE6AD281E01B200E5548D /* Assets.xcassets */,
 				C0ECE6AF281E01B200E5548D /* LaunchScreen.storyboard */,
@@ -160,8 +169,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				C0ECE6A9281E01AE00E5548D /* ViewController.swift in Sources */,
+				C0439A94281E22A800D457C2 /* UploadViewController.swift in Sources */,
 				C0ECE6A5281E01AE00E5548D /* AppDelegate.swift in Sources */,
+				C0439A92281E227A00D457C2 /* FeedViewController.swift in Sources */,
 				C0ECE6A7281E01AE00E5548D /* SceneDelegate.swift in Sources */,
+				C0439A96281E22BE00D457C2 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
