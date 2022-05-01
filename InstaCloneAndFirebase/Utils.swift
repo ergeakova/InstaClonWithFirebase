@@ -17,4 +17,11 @@ class Utils{
         return alert
     }
     
+    func isEmptyString(value: String) -> Bool{
+        if value != "" {
+            return true
+        }else{
+            return false
+        }
+    }
 }

@@ -17,15 +17,22 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
     }
 
     @IBAction func singInClicked(_ sender: Any) {
-        performSegue(withIdentifier: "toFeedVC", sender: nil)
+        if (validateUserData(email: txtEmail.text!, Password: txtPassword.text!)) {
+            Auth.auth().signIn(withEmail: txtEmail.text!, password: txtPassword.text!) { (authdata, error) in
+                if error != nil {
+                    self.present(self.utl.showBasicAlert(tit: "Error", msg: error?.localizedDescription ?? "unable to login!"), animated: true, completion: nil)
+                } else {
+                    self.performSegue(withIdentifier: "toFeedVC", sender: nil)
+                }
+            }
+        }
     }
     
     @IBAction func singUpClicked(_ sender: Any) {
-        if (txtEmail.text != "" && txtPassword.text != "") {
+        if (validateUserData(email: txtEmail.text!, Password: txtPassword.text!)) {
             Auth.auth().createUser(withEmail: txtEmail.text!, password: txtPassword.text!) { (authData, error) in
                 if error != nil {
                     self.present(self.utl.showBasicAlert(tit: "Error", msg: error?.localizedDescription ?? "user could not be created"), animated: true, completion: nil)
@@ -33,8 +40,15 @@ class ViewController: UIViewController {
                     self.performSegue(withIdentifier: "toFeedVC", sender: nil)
                 }
             }
+        }
+    }
+    
+    func validateUserData(email: String, Password: String) -> Bool{
+        if (utl.isEmptyString(value: email) && utl.isEmptyString(value: Password)) {
+            return true
         }else{
             self.present(utl.showBasicAlert(tit:"Error",msg:"email and password cannot be empty"), animated: true, completion: nil)
+            return false
         }
     }
 }
