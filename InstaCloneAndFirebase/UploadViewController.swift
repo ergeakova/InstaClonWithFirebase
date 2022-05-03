@@ -46,7 +46,8 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate, U
         let mediaFolder = storageReferance.child("media")
         
         if let data = uploadImageView.image?.jpegData(compressionQuality: 0.5) {
-            let imageReferance = mediaFolder.child("image.jpg")
+            let uuid = UUID().uuidString
+            let imageReferance = mediaFolder.child("\(uuid).jpg")
             imageReferance.putData(data, metadata: nil) { response, error in
                 if error != nil {
                     self.present(self.utl.showBasicAlert(tit:"Error",msg: error?.localizedDescription ?? "error"), animated: true, completion: nil)
