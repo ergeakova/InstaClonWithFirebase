@@ -55,23 +55,35 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate, U
                     imageReferance.downloadURL { url, error in
                         if error == nil{
                             let imageUrl = url?.absoluteString
-                            print(imageUrl)
-                            let firestorePost = ["imageUrl" : imageUrl!,
-                                                 "User": Auth.auth().currentUser!.email!,
-                                                 "postComment": self.UploadComment.text!,
-                                                 "date": "date",
-                                                 "like": 0] as [String : Any]
-                            
-                            let firestoreDatabase = Firestore.firestore()
-                            var firestoreReferance = firestoreDatabase.collection("Posts").addDocument(data: firestorePost, completion: { error in
-                                if error != nil {
-                                    self.present(self.utl.showBasicAlert(tit:"Error",msg: error?.localizedDescription ?? "error"), animated: true, completion: nil)
-                                }
-                            })
+                            self.uploadPost(imgUrl: imageUrl!)
+                            self.clearUploadVc()
+                            self.tabBarController?.selectedIndex = 0
                         }
                     }
                 }
             }
         }
+    }
+    
+    func uploadPost(imgUrl : String){
+        
+        let firestorePost = ["imageUrl" : imgUrl,
+                             "User": Auth.auth().currentUser!.email!,
+                             "postComment": self.UploadComment.text!,
+                             "date": FieldValue.serverTimestamp(),
+                             "like": 0] as [String : Any]
+        
+        let firestoreDatabase = Firestore.firestore()
+        firestoreDatabase.collection("Posts").addDocument(data: firestorePost, completion: { error in
+            if error != nil {
+                self.present(self.utl.showBasicAlert(tit:"Error",msg: error?.localizedDescription ?? "error"), animated: true, completion: nil)
+            }
+        })
+    }
+    
+    func clearUploadVc(){
+        self.UploadComment.text = ""
+        self.uploadImageView.image = UIImage(named: "addImage.jpg")
+        self.btnUpload.isEnabled = false
     }
 }
