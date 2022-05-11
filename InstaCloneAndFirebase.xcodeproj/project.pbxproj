@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C03C8DE4282555DA002C9861 /* FeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03C8DE3282555DA002C9861 /* FeedCell.swift */; };
 		C0439A8A281E130A00D457C2 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = C0439A89281E130A00D457C2 /* FirebaseAnalytics */; };
 		C0439A8C281E130A00D457C2 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = C0439A8B281E130A00D457C2 /* FirebaseAuth */; };
 		C0439A8E281E130A00D457C2 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = C0439A8D281E130A00D457C2 /* FirebaseFirestore */; };
@@ -25,6 +26,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C03C8DE3282555DA002C9861 /* FeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCell.swift; sourceTree = "<group>"; };
 		C0439A91281E227A00D457C2 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		C0439A93281E22A800D457C2 /* UploadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadViewController.swift; sourceTree = "<group>"; };
 		C0439A95281E22BE00D457C2 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
@@ -80,6 +82,7 @@
 				C0439A91281E227A00D457C2 /* FeedViewController.swift */,
 				C0439A93281E22A800D457C2 /* UploadViewController.swift */,
 				C0439A95281E22BE00D457C2 /* SettingsViewController.swift */,
+				C03C8DE3282555DA002C9861 /* FeedCell.swift */,
 				C0ECE6AA281E01AE00E5548D /* Main.storyboard */,
 				C0ECE6AD281E01B200E5548D /* Assets.xcassets */,
 				C0ECE6AF281E01B200E5548D /* LaunchScreen.storyboard */,
@@ -176,6 +179,7 @@
 				C0ECE6A5281E01AE00E5548D /* AppDelegate.swift in Sources */,
 				C0439A9A281E351A00D457C2 /* Utils.swift in Sources */,
 				C0439A92281E227A00D457C2 /* FeedViewController.swift in Sources */,
+				C03C8DE4282555DA002C9861 /* FeedCell.swift in Sources */,
 				C0ECE6A7281E01AE00E5548D /* SceneDelegate.swift in Sources */,
 				C0439A96281E22BE00D457C2 /* SettingsViewController.swift in Sources */,
 			);
