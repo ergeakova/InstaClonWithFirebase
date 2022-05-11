@@ -6,27 +6,56 @@
 //
 
 import UIKit
+import Firebase
 
 class FeedViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var tableView: UITableView!
+    var utl = Utils()
+    var posts = [Post]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
+        getDataFromFirestore()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! FeedCell
-        cell.lblUser.text = "userName"
-        cell.lblComment.text = "Comment"
-        cell.lblLikeCounter.text = "2"
+        cell.lblUser.text = posts[indexPath.row].user
+        cell.lblComment.text = posts[indexPath.row].comment
+        cell.lblLikeCounter.text = String(posts[indexPath.row].likeCount)
         cell.postImageView.image = UIImage(named: "addImage.jpg")
         
         return cell
     }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        tableView.rowHeight = 400
-        return 5
+        tableView.rowHeight = 390
+        return posts.count
+    }
+
+    func getDataFromFirestore() {
+        let firestoreDB = Firestore.firestore()
+        firestoreDB.collection("Posts").addSnapshotListener { (snapshot, error) in
+            if error == nil {
+                if snapshot?.isEmpty == false && snapshot != nil{
+                    for document in snapshot!.documents {
+                        
+                        let tempPost = Post(
+                            userInit: document.get("user") as! String,
+                            imageUrlInit: document.get("imageUrl") as! String,
+                            commentInit: document.get("postComment") as! String,
+                            likeCountInit: document.get("like") as! Int )
+                       
+                        self.posts.append(tempPost)
+                        self.tableView.reloadData()
+                    }
+                }
+            }else {
+                self.present(self.utl.showBasicAlert(tit:"Error", msg: error?.localizedDescription ?? "error"), animated: true, completion: nil)
+            }
+        }
     }
 }
