@@ -7,6 +7,7 @@
 
 import UIKit
 import Firebase
+import SDWebImage
 
 class FeedViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
@@ -26,7 +27,7 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         cell.lblUser.text = posts[indexPath.row].user
         cell.lblComment.text = posts[indexPath.row].comment
         cell.lblLikeCounter.text = String(posts[indexPath.row].likeCount)
-        cell.postImageView.image = UIImage(named: "addImage.jpg")
+        cell.postImageView.sd_setImage(with: URL(string: posts[indexPath.row].imageUrl))
         
         return cell
     }
@@ -41,6 +42,7 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         firestoreDB.collection("Posts").addSnapshotListener { (snapshot, error) in
             if error == nil {
                 if snapshot?.isEmpty == false && snapshot != nil{
+                    self.posts.removeAll()
                     for document in snapshot!.documents {
                         
                         let tempPost = Post(
