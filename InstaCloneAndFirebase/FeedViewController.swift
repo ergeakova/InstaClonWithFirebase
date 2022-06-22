@@ -24,6 +24,7 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! FeedCell
+        cell.documentId = posts[indexPath.row].documentId
         cell.lblUser.text = posts[indexPath.row].user
         cell.lblComment.text = posts[indexPath.row].comment
         cell.lblLikeCounter.text = String(posts[indexPath.row].likeCount)
@@ -39,13 +40,14 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
 
     func getDataFromFirestore() {
         let firestoreDB = Firestore.firestore()
-        firestoreDB.collection("Posts").addSnapshotListener { (snapshot, error) in
+        firestoreDB.collection("Posts").order(by: "date", descending: true).addSnapshotListener { (snapshot, error) in
             if error == nil {
                 if snapshot?.isEmpty == false && snapshot != nil{
                     self.posts.removeAll()
                     for document in snapshot!.documents {
                         
                         let tempPost = Post(
+                            documentIDInit: document.documentID,
                             userInit: document.get("user") as! String,
                             imageUrlInit: document.get("imageUrl") as! String,
                             commentInit: document.get("postComment") as! String,

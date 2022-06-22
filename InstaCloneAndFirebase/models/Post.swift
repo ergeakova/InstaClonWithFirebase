@@ -9,12 +9,14 @@ import Foundation
 
 class Post {
     
+    let documentId : String
     var user : String
     var imageUrl : String
     var comment : String
     var likeCount : Int
     
-    init(userInit : String, imageUrlInit: String, commentInit:String = "", likeCountInit:Int = 0){
+    init(documentIDInit : String,  userInit : String, imageUrlInit: String, commentInit:String = "", likeCountInit:Int = 0){
+        documentId = documentIDInit
         user = userInit
         imageUrl = imageUrlInit
         comment = commentInit
